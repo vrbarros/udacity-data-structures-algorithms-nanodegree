@@ -1,0 +1,21 @@
+Calculate Big O
+
+Task0.py
+Time - Complexity: O(1)
+Analysis: Only has an input, no complexity
+
+Task1.py 
+Time - Complexity: O(n)
+Analysis: Two lists are looped once each
+
+Task2.py 
+Time - Complexity: O(n)
+Analysis: One list is looped through once, max func. usage one time
+
+Task3.py 
+Time - Complexity: O(nˆ2)
+Analysis: For loop with regex, sort and reduce
+
+Task4.py 
+Time - Complexity: O(n+nlogn)
+Analysis: For loop and sort
