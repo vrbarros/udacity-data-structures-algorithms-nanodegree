@@ -53,4 +53,4 @@ telemarketers_numbers = sorted(
 )
 
 print("These numbers could be telemarketers:")
-print(", ".join(telemarketers_numbers))
+print(*telemarketers_numbers, sep="\n")

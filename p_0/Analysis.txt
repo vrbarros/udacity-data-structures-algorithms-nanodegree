@@ -6,16 +6,16 @@ Analysis: Only has an input, no complexity
 
 Task1.py 
 Time - Complexity: O(n)
-Analysis: Two lists are looped once each
+Analysis: Two lists are looped once each O(n)
 
 Task2.py 
 Time - Complexity: O(n)
-Analysis: One list is looped through once, max func. usage one time
+Analysis: One list is looped through once, max func. usage one time O(n)
 
 Task3.py 
-Time - Complexity: O(nˆ2)
-Analysis: For loop with regex, sort and reduce
+Time - Complexity: O(nlogn)
+Analysis: For loop with regex O(n), sort O(nlogn) and reduce O(nlogn)
 
 Task4.py 
-Time - Complexity: O(n+nlogn)
-Analysis: For loop and sort
+Time - Complexity: O(nlogn)
+Analysis: For loop O(n) and sort O(nlogn)

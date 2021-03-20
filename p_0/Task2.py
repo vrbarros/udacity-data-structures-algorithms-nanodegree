@@ -25,10 +25,7 @@ stats = {}
 
 
 def save(number, duration):
-    if number in stats:
-        stats[number] += duration
-    else:
-        stats[number] = duration
+    stats[number] = stats.get(number, 0) + duration
 
 
 for exchange in calls:

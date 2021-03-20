@@ -81,9 +81,8 @@ for call in bangalore_list:
         else:
             stats[destination[:4]] = 1
 
-codes = ", ".join(sorted(stats.keys()))
 print("The numbers called by people in Bangalore have codes:")
-print(codes)
+print(*sorted(stats.keys()), sep="\n")
 
 only_fixed_lines = stats["080"]
 
