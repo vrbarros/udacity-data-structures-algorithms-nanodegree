@@ -1,0 +1,1 @@
+The solution is to implement the recursive function that can go from the root folder to all subfolders identifying the existence of the file with the configured suffix.
