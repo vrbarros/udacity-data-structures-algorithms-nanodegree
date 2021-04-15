@@ -22,8 +22,17 @@ class LinkedList:
             cur_head = cur_head.next
         return out_string
 
-    def append(self, value):
+    def __len__(self):
+        head = self.head
+        length = 0
 
+        while head:
+            head = head.next
+            length += 1
+
+        return length
+
+    def append(self, value):
         if self.head is None:
             self.head = Node(value)
             return
@@ -37,21 +46,59 @@ class LinkedList:
     def size(self):
         size = 0
         node = self.head
+
         while node:
             size += 1
             node = node.next
 
         return size
 
+    def copy(self):
+        list_copy = LinkedList()
+        node = self.head
+
+        while node:
+            node_copy = Node(node.value)
+            list_copy.append(node_copy)
+            node = node.next
+
+        return list_copy
+
 
 def union(llist_1, llist_2):
-    # Your Solution Here
-    pass
+    llist_1_copy = llist_1.copy()
+    llist_2_copy = llist_2.copy()
+
+    node = llist_1_copy.head
+
+    while node.next:
+        node = node.next
+
+    node.next = llist_2_copy.head
+
+    return llist_1_copy
 
 
 def intersection(llist_1, llist_2):
-    # Your Solution Here
-    pass
+    intersec = LinkedList()
+
+    llist_1_dict = {}
+
+    node = llist_1.head
+    while node:
+        if not node.value in llist_1_dict:
+            llist_1_dict[node.value] = 0
+        node = node.next
+
+    node = llist_2.head
+    while node:
+        if node.value in llist_1_dict:
+            node_copy = Node(node.value)
+            intersec.append(node_copy)
+
+        node = node.next
+
+    return intersec
 
 
 # Test case 1
@@ -68,8 +115,13 @@ for i in element_1:
 for i in element_2:
     linked_list_2.append(i)
 
-print(union(linked_list_1, linked_list_2))
-print(intersection(linked_list_1, linked_list_2))
+test_union1 = union(linked_list_1, linked_list_2)
+print(test_union1, "Count:", len(test_union1))
+assert len(test_union1) == len(element_1) + len(element_2)
+test_intersection1 = intersection(linked_list_1, linked_list_2)
+print(test_intersection1, "Count:", len(test_intersection1))
+assert len(test_intersection1) == 4
+
 
 # Test case 2
 
@@ -85,5 +137,9 @@ for i in element_1:
 for i in element_2:
     linked_list_4.append(i)
 
-print(union(linked_list_3, linked_list_4))
-print(intersection(linked_list_3, linked_list_4))
+test_union2 = union(linked_list_3, linked_list_4)
+print(test_union2, "Count:", len(test_union2))
+assert len(test_union2) == len(element_1) + len(element_2)
+test_intersection2 = intersection(linked_list_3, linked_list_4)
+print(test_intersection2, "Count:", len(test_intersection2))
+assert len(test_intersection2) == 0

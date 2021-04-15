@@ -23,17 +23,6 @@ class Group(object):
         return self.name
 
 
-parent = Group("parent")
-child = Group("child")
-sub_child = Group("subchild")
-
-sub_child_user = "sub_child_user"
-sub_child.add_user(sub_child_user)
-
-child.add_group(sub_child)
-parent.add_group(child)
-
-
 def is_user_in_group(user, group):
     """
     Return True if user is in the group, False otherwise.
@@ -42,4 +31,33 @@ def is_user_in_group(user, group):
       user(str): user name/id
       group(class:Group): group to check user membership against
     """
-    return None
+
+    response = False
+
+    for group_user in group.get_users():
+        if group_user == user:
+            return True
+
+    for subgroup in group.get_groups():
+        response |= is_user_in_group(user, subgroup)
+
+    return response
+
+
+parent = Group("parent")
+child = Group("child")
+sub_child = Group("subchild")
+
+sub_child_user = "sub_child_user"
+sub_child.add_user(sub_child_user)
+
+child.add_group(sub_child)
+
+child_user = "child_user"
+child.add_user(child_user)
+parent.add_group(child)
+
+assert is_user_in_group(sub_child_user, parent) == True
+assert is_user_in_group(child_user, parent) == True
+assert is_user_in_group(sub_child_user, child) == True
+assert is_user_in_group(child_user, sub_child) == False

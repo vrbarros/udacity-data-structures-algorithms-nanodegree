@@ -1,0 +1,3 @@
+The union problem must be solved with support from a copy from the LinkedList (I need to add a new method to support this feature).The time and space complexity for this function is O(n), with simple loops and variable allocated.
+
+The intersection problem was solved with a simple approach to organize node values as keys in a dict and loop the second list argument and check if exists. The time and space complexity for this function is O(n), with simple loops and variable allocated
