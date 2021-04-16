@@ -116,10 +116,11 @@ for i in element_2:
     linked_list_2.append(i)
 
 test_union1 = union(linked_list_1, linked_list_2)
-print(test_union1, "Count:", len(test_union1))
+print("Test Union 1:", test_union1, "Count:", len(test_union1), "\n")
 assert len(test_union1) == len(element_1) + len(element_2)
+
 test_intersection1 = intersection(linked_list_1, linked_list_2)
-print(test_intersection1, "Count:", len(test_intersection1))
+print("Test Intersection 1:", test_intersection1, "Count:", len(test_intersection1), "\n")
 assert len(test_intersection1) == 4
 
 
@@ -138,8 +139,19 @@ for i in element_2:
     linked_list_4.append(i)
 
 test_union2 = union(linked_list_3, linked_list_4)
-print(test_union2, "Count:", len(test_union2))
+print("Test Union 2:", test_union2, "Count:", len(test_union2), "\n")
 assert len(test_union2) == len(element_1) + len(element_2)
+
 test_intersection2 = intersection(linked_list_3, linked_list_4)
-print(test_intersection2, "Count:", len(test_intersection2))
+print("Test Intersection 2:", test_intersection2, "Count:", len(test_intersection2), "\n")
 assert len(test_intersection2) == 0
+
+linked_list_empty = LinkedList()
+
+test_intersection3 = intersection(linked_list_empty, linked_list_empty)
+print("Test Intersection 3:", test_intersection3, "Count:", len(test_intersection3), "\n")
+assert len(test_intersection3) == 0
+
+test_union4 = union(linked_list_3, linked_list_empty)
+print("Test Union 4:", test_union4, "Count:", len(test_union4), "\n")
+assert len(test_union4) == 10

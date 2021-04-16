@@ -1,3 +1,3 @@
 For the Huffman Coding problem I choose to create a Tree and Node class to use with a Huffman class that has encode and decode methods. The Tree class is responsible for building the tree and branchs. I also created two cache objects to keep encoded_dict and reverse_dict when necessary.
 
-The time complexity of Huffman encode is O(nlogn) (considering loops and recursions) and for decode is O(n) for a simple loop to decode chars.
+The time complexity of Huffman encode is O(nlogn) (considering loops and recursions) and for decode is O(n) for a simple loop to decode chars. The space complexity is 0(n) for encode and 0(1) for decode.

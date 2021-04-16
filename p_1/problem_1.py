@@ -1,4 +1,5 @@
 # Least Recently Used Cache
+
 from collections import OrderedDict
 
 
@@ -60,8 +61,13 @@ our_cache = LRU_Cache(3)
 our_cache.set(1, 5)
 our_cache.set(2, 10)
 our_cache.set(3, 15)
-print(our_cache.get(1), "expect 5") # returns 5
-print(our_cache.get(2), "expect 10") # returns 10
-print(our_cache.get(3), "expect 15") # returns 15
+print(our_cache.get(1), "expect 5")  # returns 5
+print(our_cache.get(2), "expect 10")  # returns 10
+print(our_cache.get(3), "expect 15")  # returns 15
 our_cache.set(4, 20)
-print(our_cache.get(1), "expect -1") # returns -1
+print(our_cache.get(1), "expect -1")  # returns -1
+
+our_cache = LRU_Cache(0)
+our_cache.set(1, 1)
+print(our_cache.get(1), "expect -1")
+# returns -1

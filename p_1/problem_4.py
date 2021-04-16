@@ -57,7 +57,13 @@ child_user = "child_user"
 child.add_user(child_user)
 parent.add_group(child)
 
+no_parent_user = "no_parent_user"
+no_parent_group = Group("no_parent_child")
+no_parent_group.add_user(no_parent_user)
+
 assert is_user_in_group(sub_child_user, parent) == True
 assert is_user_in_group(child_user, parent) == True
 assert is_user_in_group(sub_child_user, child) == True
 assert is_user_in_group(child_user, sub_child) == False
+assert is_user_in_group(None, sub_child) == False
+assert is_user_in_group("no_parent_user", no_parent_group) == True

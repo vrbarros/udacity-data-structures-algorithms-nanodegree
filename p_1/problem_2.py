@@ -19,11 +19,17 @@ def find_files(suffix, path):
     Returns:
        a list of paths
     """
+    if path == "":
+        return "A valid path is required"
 
-    if path == "" or len(os.listdir(path)) == 0 or suffix == "":
+    try:
+        path_content = os.listdir(path)
+    except:
+        return "'{}' path don't exist".format(path)
+
+    if len(path_content) == 0 or suffix == "":
         return []
 
-    path_content = os.listdir(path)
     folders = []
     files = []
 
@@ -59,4 +65,7 @@ print(find_files(suffix="", path=root_path))
 # returns []
 
 print(find_files(suffix="", path=""))
-# returns []
+# returns "Valid path is required"
+
+print(find_files(suffix="", path="/root"))
+# returns "'/root' path don't exist"
