@@ -175,7 +175,7 @@ class Huffman:
 
 def huffman_encoding(data):
     if data == "":
-        return None, ""
+        return None, None
 
     tree = Tree()
     tree.make(data)
@@ -183,12 +183,15 @@ def huffman_encoding(data):
     huffman = Huffman(tree)
     encoded_data = huffman.encode(data)
 
+    if encoded_data == "":
+        return None, None
+
     return encoded_data, tree
 
 
 def huffman_decoding(data, tree):
     if data == "":
-        return ""
+        return None
 
     huffman = Huffman(tree)
     decoded_data = huffman.decode(data)
@@ -217,3 +220,17 @@ if __name__ == "__main__":
 
     print("The size of the decoded data is: {}\n".format(sys.getsizeof(decoded_data)))
     print("The content of the encoded data is: {}\n".format(decoded_data))
+
+    empty_input = ""
+
+    encoded_data, tree = huffman_encoding(empty_input)
+
+    print(encoded_data, "when expected None for empty input\n")
+    # print None
+
+    repetitive_char = "AAA"
+
+    encoded_data, tree = huffman_encoding(repetitive_char)
+
+    print(encoded_data, "when expected None for repetitive char\n")
+    # print None

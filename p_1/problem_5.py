@@ -75,21 +75,24 @@ class Blockchain:
         return length
 
 
-blockchain = Blockchain()
+blockchain_1 = Blockchain()
 
 for value in ["Node1", "Node2", "Node3"]:
-    blockchain.add_block(value)
-    print(blockchain.head, "\n")
+    blockchain_1.add_block(value)
+    print(blockchain_1.head, "\n")
     time.sleep(1)
 
-print("Blockchain Size:", blockchain.size(), "\n")
+print("Blockchain Size:", blockchain_1.size(), "\n")
 
-blockchain.add_block(data=None)
+blockchain_2 = Blockchain()
+blockchain_2.add_block(data=None)
 # print "A data value is required to add a new block to Blockchain"
 
+blockchain_3 = Blockchain()
 freeze_timestamp = datetime.now().strftime('%Y%m%d%H%M%S%f')
-blockchain.add_block(data="Time1", timestamp=freeze_timestamp)
-print(blockchain.head, "\n")
-blockchain.add_block(data="Time2", timestamp=freeze_timestamp)
-print(blockchain.head, "\n")
+blockchain_3.add_block(data="Time1", timestamp=freeze_timestamp)
+print(blockchain_3.head, "\n")
+blockchain_3.add_block(data="Time2", timestamp=freeze_timestamp)
+# print "No duplicated timestamp allowed"
+blockchain_3.add_block(data="Time3", timestamp=freeze_timestamp)
 # print "No duplicated timestamp allowed"
